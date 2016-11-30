@@ -1,15 +1,9 @@
 from neo4j.v1 import GraphDatabase, basic_auth
-import datetime
 
 driver = GraphDatabase.driver("bolt://localhost", auth=basic_auth("neo4j", "abcd"))
 session = driver.session()
 
 #DATABASE INIT
-
-date1 = datetime.datetime(2016, 11, 11)
-date2 = datetime.datetime(2016, 11, 12)
-integerdat1 = str(10000*date1.year+100*date1.month+date1.day)
-integerdat2 = str(10000*date2.year+100*date2.month+date2.day)
 
 #REGION
 session.run("CREATE (reg1:Region {r_name:'Europe'})")
