@@ -52,13 +52,13 @@ session.run("CREATE (cus5:Customer {c_name:'Dani', c_mktsegment:'Industry'})")
 session.run("CREATE INDEX on:Customer(c_mktsegment)")
 
 #ORDERS
-session.run("CREATE (ord1:Order {o_key:'key1', o_order_date:20161111, o_ship_priority:2})")
-session.run("CREATE (ord2:Order {o_key:'key2', o_order_date:20161112, o_ship_priority:1})")
-session.run("CREATE (ord3:Order {o_key:'key3', o_order_date:20161111, o_ship_priority:3})")
-session.run("CREATE (ord4:Order {o_key:'key4', o_order_date:20161112, o_ship_priority:1})")
-session.run("CREATE (ord5:Order {o_key:'key5', o_order_date:20161111, o_ship_priority:2})")
-session.run("CREATE (ord6:Order {o_key:'key6', o_order_date:20161112, o_ship_priority:1})")
-session.run("CREATE (ord7:Order {o_key:'key7', o_order_date:20161111, o_ship_priority:3})")
+session.run("CREATE (ord1:Order {o_key:'key1', o_order_date:20161111, o_ship_priority:20161121})")
+session.run("CREATE (ord2:Order {o_key:'key2', o_order_date:20161112, o_ship_priority:20161122})")
+session.run("CREATE (ord3:Order {o_key:'key3', o_order_date:20161111, o_ship_priority:20161121})")
+session.run("CREATE (ord4:Order {o_key:'key4', o_order_date:20161112, o_ship_priority:20161122})")
+session.run("CREATE (ord5:Order {o_key:'key5', o_order_date:20161111, o_ship_priority:20161121})")
+session.run("CREATE (ord6:Order {o_key:'key6', o_order_date:20161112, o_ship_priority:20161122})")
+session.run("CREATE (ord7:Order {o_key:'key7', o_order_date:20161111, o_ship_priority:20161121})")
 
 session.run("CREATE INDEX on:Order(o_order_date)")
 
@@ -106,8 +106,8 @@ session.run("MATCH (a:Supplier),(b:Partsupp) WHERE a.s_suppkey=b.ps_suppkey CREA
 #PARTSUPP_PARTNER
 session.run("MATCH (a:Partsupp),(b:Partner) WHERE a.ps_partkey=b.p_partkey CREATE (a)-[r:parsup_par]->(b)")
 
-result = session.run("MATCH (a:Person) WHERE a.name = 'Arthur' RETURN a.name AS name, a.title AS title")
-for record in result:
-    print("%s %s" % (record["title"], record["name"]))
+#result = session.run("MATCH (a:Person) WHERE a.name = 'Arthur' RETURN a.name AS name, a.title AS title")
+#for record in result:
+ #   print("%s %s" % (record["title"], record["name"]))
 
 session.close()
